@@ -1,0 +1,72 @@
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* ==========================================
+Single-colored icons can be modified like so:
+.c-name {
+  font-size: 32px;
+  color: red;
+}
+========================================== */
+
+.c-icon_attached {
+  width: 0.99609375em;
+}
+
+.c-icon_customers {
+  width: 0.875em;
+}
+
+.c-icon_down-arrow-small {
+  width: 1.5712890625em;
+}
+
+.c-icon_heart {
+  width: 1.1328125em;
+}
+
+.c-icon_inbox {
+  width: 1.142578125em;
+}
+
+.c-icon_Invoices {
+  width: 0.875em;
+}
+
+.c-icon_lock-open {
+  width: 0.875em;
+}
+
+.c-icon_money-bag {
+  width: 0.875em;
+}
+
+.c-icon_notification {
+  width: 0.904296875em;
+}
+
+.c-icon_process {
+  width: 1.0986328125em;
+}
+
+.c-icon_star {
+  width: 0.998046875em;
+}
+
+.c-icon_star-1 {
+  width: 0.998046875em;
+}
+
+.c-icon_trend-up {
+  width: 1.869140625em;
+}
+
+.c-icon_up-arrow-small {
+  width: 1.5712890625em;
+}

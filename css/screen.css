@@ -8,12 +8,32 @@
 
 :root {
     /* colors */
-    --color-alpha-light: MEDIUMSLATEBLUE;
+    /* --color-alpha-light: MEDIUMSLATEBLUE;
     --color-alpha: SLATEBLUE;
-
+    
     --color-neutral-light: LIGHTSLATEGRAY;
     --color-neutral: SLATEGRAY;
-    --color-neutral-dark: DARKSLATEGRAY;
+    --color-neutral-dark: DARKSLATEGRAY; */
+
+    --color-green:#3cc480;
+    --color-red:#ff6565;
+    --color-blue:#3b86ff;
+    --color-purple:#a3a0fb;
+    --color-cyan:#54d8ff;
+
+    --global-color-neutral-xxxxx-light:#ffffff;
+    --global-color-neutral-xxxx-light:#F0F0F7;
+    --global-color-neutral-xxx-light:#ebebf2;
+    --global-color-neutral-xx-light:#d7dae2;
+    --global-color-neutral-x-light:#bcbccb;
+    --global-color-neutral:#a5a4bf;
+    --global-color-neutral-x-dark:#808495;
+    --global-color-neutral-xx-dark:#4d4f5c;
+    --global-color-neutral-xxx-dark:#43425d;
+    --global-color-neutral-xxxx-dark:#3b3b53;
+
+    --global-background-color:var(--global-color-neutral-xxxx-light);
+    --global-color:var(--global-color-neutral-xx-dark);
 
     /* Shadows */
 
@@ -21,7 +41,17 @@
 
     /* transitions */
     --transition-alpha: .1s;
+
+    /* Whitespace */
+    --global-baseline: 5px;
+    --global-whitespace-xxs:var(--global-baseline);
+    --global-whitespace-xs:calc(var(--global-baseline) * 2);
+    --global-whitespace-sm:calc(var(--global-baseline) * 3);
+    --global-whitespace-md:calc(var(--global-baseline) * 4);
+    --global-whitespace-lg:calc(var(--global-baseline) * 5);
+    --global-whitespace-xl:calc(var(--global-baseline) * 6);
 }
+
 
 /*------------------------------------*\
 #GENERIC
@@ -34,14 +64,14 @@
 */
 
 html {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
-    color: var(--color-neutral-dark);
+    font-family: "Source Sans Pro",Helvetica, arial, sans-serif;
+    color: var(--global-color);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+    background-color: var(--global-background-color);
 }
 
 *,
@@ -98,20 +128,20 @@ h3 {
 
 h1 {
     font-size: 36px;
-    line-height: 48px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline) * 10);
+    margin: 0 0 var(--global-whitespace-md);
 }
 
 h2 {
     font-size: 32px;
-    line-height: 40px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline) * 8);
+    margin: 0 0 var(--global-whitespace-lg);
 }
 
 h3 {
     font-size: 26px;
-    line-height: 32px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline) * 6);
+    margin: 0 0 var(--global-whitespace-md);
 }
 
 h4,
@@ -119,8 +149,8 @@ h5,
 h6 {
     font-size: 16px;
     font-weight: 600;
-    line-height: 24px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline) * 5);
+    margin: 0 0 var(--global-whitespace-md);
 }
 
 p,
@@ -130,7 +160,7 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-md);
 }
 
 ul,
@@ -290,10 +320,105 @@ input::placeholder {
 \*------------------------------------*/
 
 /*
+    Component: App
+    ---
+    Website main container
+*/
+
+.c-app {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 260px auto ;
+    grid-template-rows: auto 1fr;
+}
+
+.c-app__logo {
+    background-color: var(--global-color-neutral-xxxx-dark);
+    padding:var(--global-whitespace-lg);
+}
+
+.c-app__topbar {
+    background-color: var(--global-color-neutral-xxxxx-light);
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.04);
+}
+
+.c-app__sidebar {
+    background-color: var(--global-color-neutral-xxx-dark);
+}
+
+.c-app__main {
+    
+}
+
+/*
     Component: Logo
     ---
-    Website main logo
+    Logo
 */
+
+.c-logo {
+    color:var(--global-color-neutral-xxxxx-light);
+    font-weight: bold;
+    font-size: 15px;
+    line-height: var(--global-whitespace-md);
+    margin:0;
+}
+
+/*
+    Component: Main nav
+    ---
+    Main navigation of website
+*/
+
+@keyframes color-transition-links {
+    0%   {background-color: var(--global-color-neutral-xxxx-dark);}
+    100% {background-color: var(--global-color-neutral-xxx-dark);}
+  }
+
+.c-main-nav {
+
+}
+
+.c-main-nav__list {
+    list-style: none;
+    color:var(--global-color-neutral-xxxxx-light);
+    padding:0;
+}
+
+.c-main-nav__icon {
+    width:16px;
+    height: 16px;
+    fill:var(--global-color-neutral);
+    margin-right:var(--global-whitespace-xs);
+}
+
+.c-main-nav__item {
+    border-left:5px solid var(--global-color-neutral-xxx-dark);
+    margin:var(--global-whitespace-xxs) 0;
+    padding:var(--global-whitespace-sm) var(--global-whitespace-lg);
+    transition:background 0.5s, border 0.5s;
+    background-color: var(--global-color-neutral-xxx-dark);
+
+}
+
+.c-main-nav__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.c-main-nav__item:hover,
+.is-selected {
+    border-color:var(--color-purple);
+    background-color: var(--global-color-neutral-xxxx-dark);
+    transition: none;
+    
+}
+
+.c-main-nav__item:hover .c-main-nav__icon {
+    fill:var(--color-purple);
+}
+
 
 /*------------------------------------*\
 #UTILITIES
